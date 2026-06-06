@@ -9,23 +9,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 
 <style>
-:root {
-  --navy: #0d1b2a; --navy-mid: #1a2f47; --navy-light: #243d57;
-  --gold: #c9a84c; --gold-light: #e8c97a;
-  --cream: #f8f4ef; --cream-dark: #ede8e0;
-  --text: #1a1a1a; --text-muted: #5a5a5a; --text-light: #8a8a8a;
-  --white: #ffffff; --border: #ddd8d0;
-  --shadow: 0 4px 24px rgba(13,27,42,0.08);
-  --shadow-lg: 0 12px 48px rgba(13,27,42,0.15);
+:root{
+  --navy:#0d1b2a;--navy-mid:#1a2f47;--navy-light:#243d57;
+  --gold:#c9a84c;--gold-light:#e8c97a;
+  --cream:#f8f4ef;--cream-dark:#ede8e0;
+  --text:#1a1a1a;--text-muted:#5a5a5a;--text-light:#8a8a8a;
+  --white:#ffffff;--border:#ddd8d0;
+  --shadow:0 4px 24px rgba(13,27,42,0.08);
+  --shadow-lg:0 12px 48px rgba(13,27,42,0.15);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:'Crimson Pro',Georgia,serif;background:var(--cream);color:var(--text);font-size:18px;line-height:1.7;overflow-x:hidden;}
-::-webkit-scrollbar{width:5px;} ::-webkit-scrollbar-track{background:var(--cream-dark);} ::-webkit-scrollbar-thumb{background:var(--navy-mid);border-radius:3px;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--cream-dark);}::-webkit-scrollbar-thumb{background:var(--navy-mid);border-radius:3px;}
 
 #toast{position:fixed;bottom:2rem;right:2rem;z-index:9999;background:var(--navy);color:var(--white);padding:.8rem 1.4rem;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.85rem;box-shadow:var(--shadow-lg);transform:translateY(100px);opacity:0;transition:all .35s cubic-bezier(.34,1.56,.64,1);border-left:3px solid var(--gold);}
 #toast.show{transform:translateY(0);opacity:1;}
-
 #page-loader{position:fixed;inset:0;background:var(--navy);z-index:99999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;transition:opacity .6s ease,visibility .6s ease;}
 #page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none;}
 .loader-logo{font-family:'Playfair Display',serif;font-size:2rem;color:var(--white);}
@@ -52,7 +51,6 @@ nav a:hover,nav a.active{color:var(--white);background:rgba(255,255,255,.08);}
 .mobile-nav.open{display:block;}
 .mobile-nav a,.mobile-nav button{display:block;padding:.8rem 2rem;color:rgba(255,255,255,.8);text-decoration:none;font-family:'DM Sans',sans-serif;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.05);background:none;border-left:none;border-right:none;border-top:none;width:100%;text-align:left;cursor:pointer;}
 
-/* PAGES */
 .page{display:none;animation:fadeIn .35s ease;}
 .page.active{display:block;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
@@ -66,44 +64,30 @@ nav a:hover,nav a.active{color:var(--white);background:rgba(255,255,255,.08);}
 .hero p{font-size:1.1rem;color:rgba(255,255,255,.6);max-width:520px;margin:0 auto;position:relative;font-weight:300;}
 .hero-divider{width:48px;height:2px;background:var(--gold);margin:1.5rem auto;}
 
-/* SECTION TITLES */
 .section-wrap{max-width:1140px;margin:0 auto;padding:0 2rem;}
-.section-title{padding:3rem 0 0;display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:1rem;margin-bottom:0;}
+.section-title{padding:2.5rem 0 1rem;display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--border);}
 .section-title h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:600;color:var(--navy);}
 .section-title span{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-light);}
-
-/* FILTER */
 .filter-bar{max-width:1140px;margin:0 auto;padding:1rem 2rem 0;display:flex;gap:.4rem;flex-wrap:wrap;}
 .filter-btn{background:none;border:1px solid var(--border);padding:.35rem .9rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.78rem;cursor:pointer;transition:all .2s;color:var(--text-muted);}
 .filter-btn:hover{border-color:var(--navy);color:var(--navy);}
 .filter-btn.active{background:var(--navy);border-color:var(--navy);color:var(--white);}
 
-/* ARTICLE LIST — editorial style, no boxes */
+/* ARTICLE ROWS */
 .articles-list{max-width:1140px;margin:0 auto;padding:0 2rem 4rem;}
-
-.article-row{display:grid;grid-template-columns:1fr 260px;gap:2.5rem;align-items:start;padding:2.5rem 0;border-bottom:1px solid var(--border);cursor:pointer;transition:opacity .2s;}
-.article-row:hover{opacity:.75;}
-.article-row:first-child{padding-top:2rem;}
+.article-row{display:grid;grid-template-columns:1fr 240px;gap:2rem;align-items:start;padding:2.2rem 0;border-bottom:1px solid var(--border);cursor:pointer;transition:opacity .2s;}
+.article-row:hover{opacity:.72;}
 .article-row.no-image{grid-template-columns:1fr;}
-
-.row-category{font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;}
-.row-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;line-height:1.25;color:var(--navy);margin-bottom:.7rem;}
-.row-excerpt{font-size:.98rem;color:var(--text-muted);line-height:1.6;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.row-meta{font-family:'DM Sans',sans-serif;font-size:.76rem;color:var(--text-light);display:flex;gap:1.2rem;}
-.row-img{width:100%;height:170px;object-fit:cover;border-radius:4px;display:block;}
-.row-img-placeholder{width:100%;height:170px;background:var(--navy);border-radius:4px;display:flex;align-items:center;justify-content:center;}
-.row-img-placeholder span{font-family:'Playfair Display',serif;font-size:2.5rem;color:rgba(201,168,76,.3);}
-
-/* FEATURED — top of list */
-.article-row.featured{grid-template-columns:1fr;border-bottom:2px solid var(--border);padding-bottom:2.5rem;margin-bottom:.5rem;}
+.article-row.featured{grid-template-columns:1fr;border-bottom:2px solid var(--navy);padding-bottom:2.5rem;}
+.featured-img-wrap img{width:100%;height:320px;object-fit:cover;border-radius:4px;display:block;margin-bottom:1.5rem;}
+.featured-tag{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:.2rem .7rem;border-radius:3px;margin-bottom:.6rem;}
+.row-category{font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
+.row-title{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:600;line-height:1.25;color:var(--navy);margin-bottom:.6rem;}
 .article-row.featured .row-title{font-size:2rem;}
-.article-row.featured .row-excerpt{-webkit-line-clamp:3;font-size:1.05rem;}
-.article-row.featured .row-img{height:340px;}
-.article-row.featured{grid-template-columns:1fr;}
-.featured-img-wrap{width:100%;margin-bottom:1.5rem;}
-.featured-img-wrap img{width:100%;height:340px;object-fit:cover;border-radius:4px;}
-.featured-tag{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:.2rem .7rem;border-radius:3px;margin-bottom:.75rem;}
-
+.row-excerpt{font-size:.96rem;color:var(--text-muted);line-height:1.6;margin-bottom:.9rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.article-row.featured .row-excerpt{-webkit-line-clamp:3;}
+.row-meta{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-light);display:flex;gap:1rem;flex-wrap:wrap;}
+.row-img{width:100%;height:155px;object-fit:cover;border-radius:4px;display:block;}
 .empty-state{padding:5rem 0;text-align:center;color:var(--text-muted);}
 .empty-state h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--navy);margin-bottom:.4rem;}
 
@@ -125,11 +109,11 @@ nav a:hover,nav a.active{color:var(--white);background:rgba(255,255,255,.08);}
 .reader-body blockquote p{font-style:italic;color:var(--navy-mid);margin:0;}
 .reader-body img{max-width:100%;border-radius:4px;margin:1.5rem 0;}
 
-/* READER ACTIONS */
-.reader-actions{display:flex;align-items:center;gap:.75rem;padding:2rem 0;border-top:1px solid var(--border);margin-top:3rem;flex-wrap:wrap;}
-.action-btn{display:inline-flex;align-items:center;gap:.4rem;background:none;border:1px solid var(--border);padding:.5rem 1.1rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.8rem;cursor:pointer;transition:all .2s;color:var(--text-muted);}
+/* LIKES & ACTIONS */
+.reader-actions{display:flex!important;align-items:center;gap:.75rem;padding:1.75rem 0;border-top:1px solid var(--border);margin-top:3rem;flex-wrap:wrap;min-height:60px;}
+.action-btn{display:inline-flex;align-items:center;gap:.45rem;background:var(--white);border:1px solid var(--border);padding:.55rem 1.2rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;cursor:pointer;transition:all .2s;color:var(--text-muted);box-shadow:0 1px 4px rgba(0,0,0,.06);}
 .action-btn:hover{border-color:var(--navy);color:var(--navy);}
-.action-btn.liked{border-color:#e74c3c;color:#e74c3c;}
+.action-btn.liked{border-color:#e74c3c;color:#e74c3c;background:#fff5f5;}
 .share-dropdown{position:relative;}
 .share-menu{display:none;position:absolute;bottom:calc(100% + 8px);left:0;background:var(--white);border:1px solid var(--border);border-radius:8px;box-shadow:var(--shadow-lg);min-width:170px;overflow:hidden;z-index:50;}
 .share-menu.open{display:block;}
@@ -137,17 +121,18 @@ nav a:hover,nav a.active{color:var(--white);background:rgba(255,255,255,.08);}
 .share-menu a:hover{background:var(--cream);}
 
 /* COMMENTS */
-.comments-section{padding-top:2.5rem;border-top:1px solid var(--border);margin-top:1rem;}
-.comments-section h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);margin-bottom:1.75rem;}
-.comment-form{margin-bottom:2rem;}
-.comment-form input,.comment-form textarea{width:100%;padding:.8rem 1rem;border:1px solid var(--border);border-radius:5px;font-family:'Crimson Pro',serif;font-size:1rem;background:var(--white);color:var(--text);margin-bottom:.6rem;resize:vertical;transition:border-color .2s;outline:none;}
-.comment-form input:focus,.comment-form textarea:focus{border-color:var(--navy);}
-.comment-form textarea{min-height:90px;}
-.submit-comment{background:var(--navy);color:var(--white);border:none;padding:.7rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.85rem;border-radius:4px;cursor:pointer;transition:background .2s;}
+.comments-wrap{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);}
+.comments-wrap h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);margin-bottom:1.5rem;}
+.comment-form{background:var(--white);border-radius:8px;border:1px solid var(--border);padding:1.25rem;margin-bottom:1.75rem;}
+.comment-form input,.comment-form textarea{width:100%;padding:.7rem .85rem;border:1px solid var(--border);border-radius:5px;font-family:'Crimson Pro',serif;font-size:1rem;background:var(--cream);color:var(--text);margin-bottom:.6rem;resize:vertical;transition:border-color .2s;outline:none;}
+.comment-form input:focus,.comment-form textarea:focus{border-color:var(--navy);background:var(--white);}
+.comment-form textarea{min-height:85px;}
+.submit-comment{background:var(--navy);color:var(--white);border:none;padding:.65rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.85rem;border-radius:4px;cursor:pointer;transition:background .2s;}
 .submit-comment:hover{background:var(--navy-mid);}
-.comment-item{padding:1.1rem 0;border-bottom:1px solid var(--cream-dark);}
-.comment-author{font-family:'DM Sans',sans-serif;font-weight:500;font-size:.88rem;color:var(--navy);margin-bottom:.15rem;}
-.comment-date{font-family:'DM Sans',sans-serif;font-size:.73rem;color:var(--text-light);margin-bottom:.4rem;}
+.comment-item{padding:1rem 0;border-bottom:1px solid var(--cream-dark);}
+.comment-item:last-child{border-bottom:none;}
+.comment-author{font-family:'DM Sans',sans-serif;font-weight:600;font-size:.88rem;color:var(--navy);}
+.comment-date{font-family:'DM Sans',sans-serif;font-size:.72rem;color:var(--text-light);margin:.1rem 0 .4rem;}
 .comment-text{font-size:.98rem;color:var(--text-muted);line-height:1.6;}
 
 /* ABOUT */
@@ -179,45 +164,58 @@ nav a:hover,nav a.active{color:var(--white);background:rgba(255,255,255,.08);}
 .btn-secondary{flex:1;background:none;color:var(--text-muted);border:1px solid var(--border);padding:.82rem;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:.88rem;cursor:pointer;transition:all .2s;}
 .btn-secondary:hover{border-color:var(--navy);color:var(--navy);}
 
-/* ADMIN DASHBOARD */
-.dashboard{max-width:900px;margin:0 auto;padding:3rem 2rem 5rem;}
-.dashboard h1{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--navy);margin-bottom:.3rem;}
-.dashboard-sub{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);margin-bottom:2.5rem;}
-.post-form{background:var(--white);border-radius:8px;border:1px solid var(--border);border-top:3px solid var(--gold);padding:2rem;margin-bottom:2.5rem;}
-.post-form h2{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--navy);margin-bottom:1.25rem;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:.9rem;}
-.form-full{grid-column:1/-1;}
-.form-group{display:flex;flex-direction:column;gap:.3rem;}
-.form-group label{font-family:'DM Sans',sans-serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);font-weight:500;}
-.form-group input,.form-group select,.form-group textarea{padding:.75rem 1rem;border:1px solid var(--border);border-radius:5px;font-family:'Crimson Pro',serif;font-size:1rem;color:var(--text);background:var(--white);outline:none;transition:border-color .2s;resize:vertical;}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--navy);}
-.form-group textarea{min-height:220px;}
-.img-upload-area{border:2px dashed var(--border);border-radius:6px;padding:1.5rem;text-align:center;cursor:pointer;transition:all .2s;position:relative;background:var(--cream);}
+/* ── ADMIN DASHBOARD ── Facebook-style composer */
+.dashboard{max-width:680px;margin:0 auto;padding:2rem 1.25rem 5rem;}
+.dash-topbar{background:var(--navy);margin:-0px;padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;}
+.dash-avatar{width:42px;height:42px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--navy);flex-shrink:0;}
+.dash-user{flex:1;}
+.dash-user h3{font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;color:var(--white);}
+.dash-user p{font-family:'DM Sans',sans-serif;font-size:.75rem;color:rgba(255,255,255,.5);}
+
+/* Composer box */
+.composer{background:var(--white);border-radius:10px;box-shadow:var(--shadow);margin-bottom:1.5rem;overflow:hidden;border:1px solid var(--border);}
+.composer-top{padding:1rem 1.25rem .5rem;display:flex;align-items:flex-start;gap:.85rem;}
+.composer-avatar{width:38px;height:38px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:.95rem;color:var(--navy);flex-shrink:0;}
+.composer-fields{flex:1;}
+.composer-fields input,.composer-fields textarea,.composer-fields select{width:100%;border:none;outline:none;font-family:'Crimson Pro',serif;font-size:1rem;color:var(--text);background:transparent;resize:none;line-height:1.5;}
+.composer-fields input{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:.5rem;border-bottom:1px solid var(--border);padding-bottom:.5rem;}
+.composer-fields input::placeholder{font-weight:400;color:var(--text-light);}
+.composer-fields textarea{min-height:120px;font-size:1rem;}
+.composer-fields textarea::placeholder{color:var(--text-light);}
+.composer-meta{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;padding:.75rem 1.25rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.composer-meta select,.composer-meta input{width:100%;padding:.55rem .75rem;border:1px solid var(--border);border-radius:5px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);background:var(--cream);outline:none;}
+.composer-meta select:focus,.composer-meta input:focus{border-color:var(--navy);}
+.composer-img{padding:.75rem 1.25rem;border-bottom:1px solid var(--border);}
+.img-upload-area{border:2px dashed var(--border);border-radius:6px;padding:1rem;text-align:center;cursor:pointer;transition:all .2s;position:relative;background:var(--cream);}
 .img-upload-area:hover{border-color:var(--navy);}
 .img-upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
-.img-upload-label{font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--text-muted);}
-.img-preview{width:100%;max-height:180px;object-fit:cover;border-radius:5px;display:none;margin-top:.75rem;}
+.img-upload-label{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);}
+.img-preview{width:100%;max-height:200px;object-fit:cover;border-radius:5px;display:none;margin-top:.6rem;}
 .img-preview.visible{display:block;}
-.img-remove{background:none;border:1px solid #fca5a5;color:#dc2626;padding:.28rem .7rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.73rem;cursor:pointer;margin-top:.4rem;display:none;}
+.img-remove{background:none;border:1px solid #fca5a5;color:#dc2626;padding:.25rem .65rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.72rem;cursor:pointer;margin-top:.4rem;display:none;}
 .img-remove.visible{display:inline-block;}
-.form-actions{display:flex;gap:.65rem;margin-top:1rem;}
-.publish-btn{background:var(--navy);color:var(--white);border:none;padding:.8rem 1.75rem;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:.875rem;cursor:pointer;transition:background .2s;}
-.publish-btn:hover{background:var(--navy-mid);}
-.publish-btn:disabled{opacity:.6;cursor:not-allowed;}
-.cancel-btn{background:none;color:var(--text-muted);border:1px solid var(--border);padding:.8rem 1.25rem;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:.875rem;cursor:pointer;transition:all .2s;}
+.composer-actions{padding:.85rem 1.25rem;display:flex;align-items:center;justify-content:flex-end;gap:.65rem;}
+.post-btn{background:var(--navy);color:var(--white);border:none;padding:.7rem 1.75rem;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;transition:background .2s;}
+.post-btn:hover{background:var(--navy-mid);}
+.post-btn:disabled{opacity:.55;cursor:not-allowed;}
+.cancel-btn{background:none;color:var(--text-muted);border:1px solid var(--border);padding:.68rem 1.1rem;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.85rem;cursor:pointer;transition:all .2s;}
 .cancel-btn:hover{border-color:var(--navy);color:var(--navy);}
+.editing-bar{background:#fff9e6;border:1px solid var(--gold);border-radius:6px;padding:.6rem 1rem;font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--navy);margin-bottom:.75rem;display:none;align-items:center;justify-content:space-between;}
+.editing-bar.visible{display:flex;}
 
-.posts-list h2{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--navy);margin-bottom:1rem;}
-.admin-row{display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border);}
-.admin-thumb{width:48px;height:48px;border-radius:4px;object-fit:cover;flex-shrink:0;}
-.admin-thumb-ph{width:48px;height:48px;border-radius:4px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);}
-.admin-info{flex:1;}
-.admin-info h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--navy);margin-bottom:.15rem;}
-.admin-info p{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-light);}
-.admin-btns{display:flex;gap:.4rem;}
-.btn-edit{background:none;border:1px solid var(--border);color:var(--text-muted);padding:.38rem .8rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.75rem;cursor:pointer;transition:all .2s;}
+/* Published posts in admin */
+.admin-posts-section h2{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
+.admin-post-card{background:var(--white);border-radius:8px;border:1px solid var(--border);padding:1rem 1.1rem;margin-bottom:.7rem;display:flex;align-items:center;gap:.9rem;transition:box-shadow .2s;}
+.admin-post-card:hover{box-shadow:var(--shadow);}
+.admin-thumb{width:50px;height:50px;border-radius:5px;object-fit:cover;flex-shrink:0;}
+.admin-thumb-ph{width:50px;height:50px;border-radius:5px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);}
+.admin-post-info{flex:1;min-width:0;}
+.admin-post-info h3{font-family:'Playfair Display',serif;font-size:.98rem;color:var(--navy);margin-bottom:.15rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.admin-post-info p{font-family:'DM Sans',sans-serif;font-size:.73rem;color:var(--text-light);}
+.admin-post-btns{display:flex;gap:.4rem;flex-shrink:0;}
+.btn-edit{background:none;border:1px solid var(--border);color:var(--text-muted);padding:.35rem .75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.73rem;cursor:pointer;transition:all .2s;}
 .btn-edit:hover{border-color:var(--navy);color:var(--navy);}
-.btn-delete{background:none;border:1px solid #fca5a5;color:#dc2626;padding:.38rem .8rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.75rem;cursor:pointer;transition:all .2s;}
+.btn-delete{background:none;border:1px solid #fca5a5;color:#dc2626;padding:.35rem .75rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.73rem;cursor:pointer;transition:all .2s;}
 .btn-delete:hover{background:#fef2f2;}
 
 /* FOOTER */
@@ -228,16 +226,16 @@ footer{background:var(--navy);padding:2.5rem 2rem;}
 .footer-links{display:flex;gap:1.25rem;}
 .footer-links a{color:rgba(255,255,255,.4);text-decoration:none;font-family:'DM Sans',sans-serif;font-size:.8rem;transition:color .2s;}
 .footer-links a:hover{color:var(--gold);}
-.footer-copy{font-family:'DM Sans',sans-serif;font-size:.73rem;color:rgba(255,255,255,.3);width:100%;text-align:center;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.07);margin-top:.25rem;}
+.footer-copy{font-family:'DM Sans',sans-serif;font-size:.73rem;color:rgba(255,255,255,.3);width:100%;text-align:center;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.07);}
 
 @media(max-width:768px){
   nav{display:none;} .hamburger{display:flex;}
   .article-row{grid-template-columns:1fr;}
-  .row-img,.row-img-placeholder{height:200px;}
-  .article-row.featured .featured-img-wrap img{height:220px;}
-  .form-row{grid-template-columns:1fr;}
+  .row-img{height:180px;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
   .reader-wrap{padding:2rem 1.25rem 4rem;}
+  .composer-meta{grid-template-columns:1fr;}
+  .dashboard{padding:1rem .75rem 4rem;}
 }
 
 </style>
@@ -297,7 +295,7 @@ footer{background:var(--navy);padding:2.5rem 2rem;}
 <!-- ESSAYS -->
 <div class="page" id="page-essays">
   <div class="section-wrap">
-    <div class="section-title" style="margin-top:2.5rem;">
+    <div class="section-title" style="margin-top:2rem;">
       <h2>All Essays & Analyses</h2>
       <span id="essays-article-count"></span>
     </div>
@@ -339,77 +337,72 @@ footer{background:var(--navy);padding:2.5rem 2rem;}
     <div class="about-pillars">
       <div class="pillar"><h3>Literature</h3><p>Close readings of fiction, poetry, and drama across traditions and centuries.</p></div>
       <div class="pillar"><h3>Culture</h3><p>Critical analysis of film, music, visual art, and popular culture as text.</p></div>
-      <div class="pillar"><h3>History</h3><p>Historiographical essays and analyses of historical narratives and their implications.</p></div>
-      <div class="pillar"><h3>Contemporary Issues</h3><p>Rigorous engagement with today's pressing social, political, and ethical questions.</p></div>
+      <div class="pillar"><h3>History</h3><p>Historiographical essays and analyses of historical narratives.</p></div>
+      <div class="pillar"><h3>Contemporary Issues</h3><p>Rigorous engagement with today's pressing social and ethical questions.</p></div>
     </div>
     <h2>Our Readers</h2>
-    <p>Sylvester's Lens is written for students, researchers, educators, and thoughtful general readers who believe that careful analysis of texts and ideas is both an intellectual pleasure and a civic responsibility.</p>
+    <p>Sylvester's Lens is written for students, researchers, educators, and thoughtful general readers who believe careful analysis is both an intellectual pleasure and a civic responsibility.</p>
   </div>
 </div>
 
 <!-- ADMIN -->
 <div class="page" id="page-admin">
   <div class="dashboard">
-    <h1>Admin Dashboard</h1>
-    <p class="dashboard-sub" id="admin-welcome">Welcome back</p>
 
-    <div class="post-form">
-      <h2 id="form-title">Publish New Essay</h2>
-      <div class="form-row">
-        <div class="form-group form-full">
-          <label>Title</label>
-          <input type="text" id="art-title" placeholder="Enter a compelling title…"/>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Category</label>
-          <select id="art-category">
-            <option value="Literature">Literature</option>
-            <option value="Culture">Culture</option>
-            <option value="History">History</option>
-            <option value="Contemporary Issues">Contemporary Issues</option>
-            <option value="Philosophy">Philosophy</option>
-            <option value="Politics">Politics</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Read Time (mins)</label>
-          <input type="number" id="art-readtime" placeholder="e.g. 8" min="1"/>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group form-full">
-          <label>Short Excerpt</label>
-          <input type="text" id="art-excerpt" placeholder="Brief description shown in listing…"/>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group form-full">
-          <label>Cover Image (optional, max 2MB)</label>
-          <div class="img-upload-area" id="img-upload-area">
-            <input type="file" id="art-image" accept="image/*" onchange="handleImageSelect(this)"/>
-            <div class="img-upload-label">Click to upload or drag & drop — JPG, PNG, WebP</div>
-            <img class="img-preview" id="img-preview" src="" alt="Preview"/>
-            <button class="img-remove" id="img-remove-btn" onclick="removeImage(event)">✕ Remove</button>
-          </div>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group form-full">
-          <label>Article Body</label>
-          <textarea id="art-body" placeholder="Write the full essay here…"></textarea>
-        </div>
-      </div>
-      <div class="form-actions">
-        <button class="publish-btn" id="publish-btn" onclick="publishArticle()">Publish Essay</button>
-        <button class="cancel-btn" id="cancel-edit-btn" style="display:none;" onclick="cancelEdit()">Cancel</button>
+    <!-- Top bar -->
+    <div class="dash-topbar">
+      <div class="dash-avatar" id="dash-avatar">S</div>
+      <div class="dash-user">
+        <h3 id="admin-welcome">Admin</h3>
+        <p>Sylvester's Lens · Publisher</p>
       </div>
     </div>
 
-    <div class="posts-list">
+    <!-- Editing notice -->
+    <div class="editing-bar" id="editing-bar">
+      ✏ Editing essay — make your changes below
+      <button onclick="cancelEdit()" style="background:none;border:none;color:var(--navy);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;">Cancel</button>
+    </div>
+
+    <!-- Composer -->
+    <div class="composer">
+      <div class="composer-top">
+        <div class="composer-avatar">S</div>
+        <div class="composer-fields">
+          <input type="text" id="art-title" placeholder="Essay title…"/>
+          <textarea id="art-body" placeholder="Write your essay here… (plain text or HTML tags like &lt;p&gt;, &lt;h2&gt;, &lt;blockquote&gt; supported)"></textarea>
+        </div>
+      </div>
+      <div class="composer-meta">
+        <select id="art-category">
+          <option value="Literature">Literature</option>
+          <option value="Culture">Culture</option>
+          <option value="History">History</option>
+          <option value="Contemporary Issues">Contemporary Issues</option>
+          <option value="Philosophy">Philosophy</option>
+          <option value="Politics">Politics</option>
+        </select>
+        <input type="text" id="art-excerpt" placeholder="Short excerpt…"/>
+        <input type="number" id="art-readtime" placeholder="Read time (mins)" min="1"/>
+      </div>
+      <div class="composer-img">
+        <div class="img-upload-area">
+          <input type="file" id="art-image" accept="image/*" onchange="handleImageSelect(this)"/>
+          <div class="img-upload-label">📷 Add cover photo (optional, max 2MB)</div>
+          <img class="img-preview" id="img-preview" src="" alt="Preview"/>
+          <button class="img-remove" id="img-remove-btn" onclick="removeImage(event)">✕ Remove photo</button>
+        </div>
+      </div>
+      <div class="composer-actions">
+        <button class="cancel-btn" id="cancel-edit-btn" style="display:none;" onclick="cancelEdit()">Cancel Edit</button>
+        <button class="post-btn" id="publish-btn" onclick="publishArticle()">Publish Essay</button>
+      </div>
+    </div>
+
+    <!-- Published list -->
+    <div class="admin-posts-section">
       <h2>Published Essays</h2>
-      <div id="admin-articles-list"><p style="color:var(--text-muted);font-size:.9rem;">Loading…</p></div>
+      <div id="admin-articles-list"><p style="color:var(--text-muted);font-size:.88rem;">Loading…</p></div>
     </div>
   </div>
 </div>
@@ -458,8 +451,8 @@ const firebaseConfig = {
   appId: "1:133059569901:web:73c9a58bca0f713a6784e4"
 };
 
-const ADMINS = ["sylvestersaviour100@gmail.com", "goodnewsolomon123@gmail.com"];
-const app = initializeApp(firebaseConfig);
+const ADMINS = ["sylvestersaviour100@gmail.com","goodnewsolomon123@gmail.com"];
+const app  = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db   = getFirestore(app);
 
@@ -468,17 +461,21 @@ let isAdmin = false, prevPage = 'home';
 let selectedImageFile = null, currentImageUrl = null;
 
 // LOADER
-window.addEventListener('load', () => {
-  setTimeout(() => document.getElementById('page-loader').classList.add('hidden'), 1400);
-});
+window.addEventListener('load', () =>
+  setTimeout(() => document.getElementById('page-loader').classList.add('hidden'), 1400)
+);
 
-// AUTH — stays logged in across posts
+// AUTH — persists across posts, never kicks admin out
 onAuthStateChanged(auth, user => {
   if (user && ADMINS.includes(user.email)) {
     isAdmin = true;
     document.getElementById('admin-login-btn').style.display = 'none';
     document.getElementById('admin-logout-btn').style.display = 'block';
-    document.getElementById('admin-welcome').textContent = 'Signed in as ' + user.email;
+    const name = user.email.split('@')[0];
+    document.getElementById('admin-welcome').textContent = name;
+    // Update avatars with first letter
+    const letter = name[0].toUpperCase();
+    document.querySelectorAll('.dash-avatar,.composer-avatar').forEach(el => el.textContent = letter);
     renderAdminList();
   } else {
     isAdmin = false;
@@ -495,9 +492,7 @@ window.doLogin = async () => {
   const errEl = document.getElementById('login-error');
   errEl.style.display = 'none';
   if (!ADMINS.includes(email)) {
-    errEl.textContent = 'Unauthorised email.';
-    errEl.style.display = 'block';
-    return;
+    errEl.textContent = 'Unauthorised email.'; errEl.style.display = 'block'; return;
   }
   try {
     await signInWithEmailAndPassword(auth, email, pass);
@@ -505,15 +500,12 @@ window.doLogin = async () => {
     showPage('admin');
     showToast('Welcome back!');
   } catch(e) {
-    errEl.textContent = 'Wrong password. Try again.';
-    errEl.style.display = 'block';
+    errEl.textContent = 'Wrong password. Try again.'; errEl.style.display = 'block';
   }
 };
 
 window.adminLogout = async () => {
-  await signOut(auth);
-  showPage('home');
-  showToast('Signed out.');
+  await signOut(auth); showPage('home'); showToast('Signed out.');
 };
 
 // LIVE LISTENER
@@ -544,26 +536,32 @@ window.filterEssays = (cat,btn) => {
   btn.classList.add('active'); renderEssays(cat);
 };
 
+// RENDER BODY — supports HTML tags; plain text gets wrapped in paragraphs
+function renderBody(body) {
+  if (!body) return '';
+  // If the body contains HTML tags, render as-is
+  if (/<[a-z][\s\S]*>/i.test(body)) return body;
+  // Otherwise wrap plain text paragraphs in <p> tags
+  return body.split(/\n\n+/).map(p => `<p>${p.replace(/\n/g,'<br/>')}</p>`).join('');
+}
+
 // HELPERS
 function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function fmtDate(ts){ if(!ts)return ''; const d=ts.toDate?ts.toDate():new Date(ts); return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}); }
+function fmtDate(ts){ if(!ts) return ''; const d=ts.toDate?ts.toDate():new Date(ts); return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}); }
 
-// RENDER HOME
+// RENDER
 function renderHome(filter='all') {
   const arts = filter==='all'?allArticles:allArticles.filter(a=>a.category===filter);
   const el = document.getElementById('home-articles-list');
   if (!arts.length){ el.innerHTML='<div class="empty-state"><h3>No publications yet</h3><p>Check back soon.</p></div>'; return; }
   el.innerHTML = arts.map((a,i) => i===0 ? featuredRow(a) : articleRow(a)).join('');
 }
-
-// RENDER ESSAYS
 function renderEssays(filter='all') {
   const arts = filter==='all'?allArticles:allArticles.filter(a=>a.category===filter);
   const el = document.getElementById('essays-articles-list');
   if (!arts.length){ el.innerHTML='<div class="empty-state"><h3>No essays found</h3></div>'; return; }
   el.innerHTML = arts.map(a => articleRow(a)).join('');
 }
-
 function featuredRow(a) {
   return `<div class="article-row featured" onclick="openArticle('${a.id}')">
     ${a.imageUrl?`<div class="featured-img-wrap"><img src="${a.imageUrl}" alt="${esc(a.title)}"/></div>`:''}
@@ -581,10 +579,8 @@ function featuredRow(a) {
     </div>
   </div>`;
 }
-
 function articleRow(a) {
-  const hasImg = !!a.imageUrl;
-  return `<div class="article-row${hasImg?'':' no-image'}" onclick="openArticle('${a.id}')">
+  return `<div class="article-row${a.imageUrl?'':' no-image'}" onclick="openArticle('${a.id}')">
     <div>
       <div class="row-category">${esc(a.category||'Essay')}</div>
       <div class="row-title">${esc(a.title)}</div>
@@ -596,7 +592,7 @@ function articleRow(a) {
         <span>💬 ${a.commentCount||0}</span>
       </div>
     </div>
-    ${hasImg?`<img src="${a.imageUrl}" class="row-img" alt="${esc(a.title)}" loading="lazy"/>`:''}
+    ${a.imageUrl?`<img src="${a.imageUrl}" class="row-img" alt="${esc(a.title)}" loading="lazy"/>`:''}
   </div>`;
 }
 
@@ -606,31 +602,32 @@ window.openArticle = (id) => {
   prevPage = document.querySelector('.page.active')?.id?.replace('page-','') || 'home';
   const a = allArticles.find(x=>x.id===id);
   if (!a) return;
+  const rc = document.getElementById('reader-content');
+  const ra = document.getElementById('reader-actions');
+  const cs = document.getElementById('comments-section');
+  if (!rc||!ra||!cs) return;
 
-  const readerContent = document.getElementById('reader-content');
-  const readerActions = document.getElementById('reader-actions');
-  const commentsSection = document.getElementById('comments-section');
-  if (!readerContent || !readerActions || !commentsSection) return;
-
-  readerContent.innerHTML = `
+  // Body renders as real HTML — do NOT escape it
+  rc.innerHTML = `
     ${a.imageUrl?`<img src="${a.imageUrl}" class="reader-cover" alt="${esc(a.title)}"/>`:''}
     <div class="reader-category">${esc(a.category||'Essay')}</div>
     <h1 class="reader-title">${esc(a.title)}</h1>
     <div class="reader-meta">
       <span>${fmtDate(a.createdAt)}</span><span class="dot">·</span>
       <span>${a.readTime||'?'} min read</span><span class="dot">·</span>
-      <span>♥ ${a.likes||0} likes</span>
+      <span>♥ <span id="meta-likes">${a.likes||0}</span></span>
     </div>
-    <div class="reader-body">${a.body||''}</div>`;
+    <div class="reader-body">${renderBody(a.body||'')}</div>`;
 
-  readerActions.innerHTML = `
-    <button class="action-btn${getLiked(id)?' liked':''}" id="like-btn" onclick="toggleLike('${id}')">
-      ♥ <span id="like-count">${a.likes||0}</span> Likes
+  const liked = getLiked(id);
+  ra.innerHTML = `
+    <button class="action-btn${liked?' liked':''}" id="like-btn" onclick="toggleLike('${id}')">
+      ${liked?'♥':'♡'} <span id="like-count">${a.likes||0}</span> ${liked?'Liked':'Like'}
     </button>
     <div class="share-dropdown">
-      <button class="action-btn" onclick="toggleShareMenu()">↗ Share</button>
+      <button class="action-btn" onclick="toggleShareMenu(event)">↗ Share</button>
       <div class="share-menu" id="share-menu">
-        <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(a.title)}&url=${encodeURIComponent(location.href)}" target="_blank">𝕏 Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(a.title)}&url=${encodeURIComponent(location.href)}" target="_blank">𝕏 Twitter / X</a>
         <a href="https://wa.me/?text=${encodeURIComponent(a.title+' — '+location.href)}" target="_blank">WhatsApp</a>
         <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(location.href)}" target="_blank">Facebook</a>
         <a href="#" onclick="navigator.clipboard.writeText(location.href);showToast('Link copied!');return false;">🔗 Copy Link</a>
@@ -638,77 +635,77 @@ window.openArticle = (id) => {
     </div>
     ${isAdmin?`<button class="action-btn" onclick="editArticle('${id}')">✏ Edit</button>`:''}`;
 
-  commentsSection.innerHTML = '';
+  cs.innerHTML = '';
   loadComments(id);
   showPage('reader');
 };
 
-document.addEventListener('click', e => {
-  if (!e.target.closest('.share-dropdown')) {
-    const m = document.getElementById('share-menu');
-    if (m) m.classList.remove('open');
-  }
-});
-window.toggleShareMenu = () => { const m=document.getElementById('share-menu'); if(m) m.classList.toggle('open'); };
+window.toggleShareMenu = (e) => { e.stopPropagation(); document.getElementById('share-menu').classList.toggle('open'); };
+document.addEventListener('click', () => { const m=document.getElementById('share-menu'); if(m) m.classList.remove('open'); });
 
 // LIKES
 function getLiked(id){ return JSON.parse(localStorage.getItem('sl_liked')||'[]').includes(id); }
 window.toggleLike = async (id) => {
   const liked = getLiked(id);
   const l = JSON.parse(localStorage.getItem('sl_liked')||'[]');
-  localStorage.setItem('sl_liked', JSON.stringify(liked ? l.filter(x=>x!==id) : [...l,id]));
+  localStorage.setItem('sl_liked', JSON.stringify(liked?l.filter(x=>x!==id):[...l,id]));
   await updateDoc(doc(db,'articles',id),{likes:increment(liked?-1:1)});
-  const el=document.getElementById('like-count'), btn=document.getElementById('like-btn');
-  if(el) el.textContent=parseInt(el.textContent)+(liked?-1:1);
-  if(btn) btn.classList.toggle('liked',!liked);
-  if(!liked) showToast('Liked! ♥');
+  const btn=document.getElementById('like-btn');
+  const cnt=document.getElementById('like-count');
+  if (!btn||!cnt) return;
+  const newVal = parseInt(cnt.textContent||'0')+(liked?-1:1);
+  cnt.textContent = newVal;
+  document.getElementById('meta-likes').textContent = newVal;
+  if (liked) { btn.classList.remove('liked'); btn.innerHTML=`♡ <span id="like-count">${newVal}</span> Like`; }
+  else        { btn.classList.add('liked');    btn.innerHTML=`♥ <span id="like-count">${newVal}</span> Liked`; showToast('Liked! ♥'); }
 };
 
 // COMMENTS
 async function loadComments(articleId) {
   const snap = await getDocs(query(collection(db,'articles',articleId,'comments'),orderBy('createdAt','asc')));
   const comments = snap.docs.map(d=>({id:d.id,...d.data()}));
-  const section = document.getElementById('comments-section');
-  if (!section) return;
-  section.innerHTML = `
-    <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);margin:2.5rem 0 1.5rem;padding-top:2rem;border-top:1px solid var(--border);">Comments (${comments.length})</h3>
-    <div class="comment-form">
-      <input type="text" id="comment-name" placeholder="Your name (optional)"/>
-      <textarea id="comment-text" placeholder="Share your thoughts on this essay…"></textarea>
-      <button class="submit-comment" onclick="submitComment('${articleId}')">Post Comment</button>
-    </div>
-    <div id="comments-list">
-      ${comments.length
-        ? comments.map(c=>`<div class="comment-item">
-            <div class="comment-author">${esc(c.name||'Anonymous')}</div>
-            <div class="comment-date">${fmtDate(c.createdAt)}</div>
-            <div class="comment-text">${esc(c.text)}</div>
-          </div>`).join('')
-        : '<p style="color:var(--text-muted);font-size:.95rem;padding:.5rem 0;">Be the first to comment on this essay.</p>'}
+  const cs = document.getElementById('comments-section');
+  if (!cs) return;
+  cs.innerHTML = `
+    <div class="comments-wrap">
+      <h3>Comments (${comments.length})</h3>
+      <div class="comment-form">
+        <input type="text" id="comment-name" placeholder="Your name (optional)"/>
+        <textarea id="comment-text" placeholder="Share your thoughts on this essay…"></textarea>
+        <button class="submit-comment" onclick="submitComment('${articleId}')">Post Comment</button>
+      </div>
+      <div id="comments-list">
+        ${comments.length
+          ? comments.map(c=>`<div class="comment-item">
+              <div class="comment-author">${esc(c.name||'Anonymous')}</div>
+              <div class="comment-date">${fmtDate(c.createdAt)}</div>
+              <div class="comment-text">${esc(c.text)}</div>
+            </div>`).join('')
+          : '<p style="color:var(--text-muted);font-size:.95rem;padding:.5rem 0;">Be the first to comment.</p>'}
+      </div>
     </div>`;
 }
 
 window.submitComment = async (articleId) => {
-  const nameEl = document.getElementById('comment-name');
-  const textEl = document.getElementById('comment-text');
-  if (!nameEl || !textEl) return;
-  const name = nameEl.value.trim();
+  const nameEl=document.getElementById('comment-name');
+  const textEl=document.getElementById('comment-text');
+  if (!nameEl||!textEl) return;
   const text = textEl.value.trim();
   if (!text){ showToast('Please write something first.'); return; }
+  const name = nameEl.value.trim();
   await addDoc(collection(db,'articles',articleId,'comments'),{name:name||'Anonymous',text,createdAt:serverTimestamp()});
   await updateDoc(doc(db,'articles',articleId),{commentCount:increment(1)});
-  nameEl.value = '';
-  textEl.value = '';
+  // Clear inputs immediately
+  nameEl.value=''; textEl.value='';
   showToast('Comment posted!');
   await loadComments(articleId);
 };
 
 // IMAGE
-function imageToBase64(file) {
-  return new Promise(resolve => {
-    const canvas = document.createElement('canvas');
-    const img = new Image();
-    img.onload = () => {
+function imageToBase64(file){
+  return new Promise(resolve=>{
+    const canvas=document.createElement('canvas'), img=new Image();
+    img.onload=()=>{
       const MAX=900; let w=img.width,h=img.height;
       if(w>MAX){h=Math.round(h*MAX/w);w=MAX;}
       if(h>MAX){w=Math.round(w*MAX/h);h=MAX;}
@@ -717,65 +714,61 @@ function imageToBase64(file) {
       URL.revokeObjectURL(img.src);
       resolve(canvas.toDataURL('image/jpeg',0.75));
     };
-    img.src = URL.createObjectURL(file);
+    img.src=URL.createObjectURL(file);
   });
 }
-
 window.handleImageSelect = (input) => {
-  const file = input.files[0];
-  if (!file) return;
-  if (file.size > 2*1024*1024){ showToast('Max 2MB please.'); input.value=''; return; }
-  selectedImageFile = file;
-  const reader = new FileReader();
-  reader.onload = e => {
-    const p=document.getElementById('img-preview');
-    if(p){ p.src=e.target.result; p.classList.add('visible'); }
-    const r=document.getElementById('img-remove-btn');
-    if(r) r.classList.add('visible');
+  const file=input.files[0]; if(!file) return;
+  if(file.size>2*1024*1024){ showToast('Max 2MB please.'); input.value=''; return; }
+  selectedImageFile=file;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const p=document.getElementById('img-preview'); if(p){p.src=e.target.result;p.classList.add('visible');}
+    const r=document.getElementById('img-remove-btn'); if(r) r.classList.add('visible');
   };
   reader.readAsDataURL(file);
 };
-
-window.removeImage = (e) => {
-  e.stopPropagation();
-  selectedImageFile=null; currentImageUrl=null;
+window.removeImage=(e)=>{
+  e.stopPropagation(); selectedImageFile=null; currentImageUrl=null;
   const fi=document.getElementById('art-image'); if(fi) fi.value='';
   const p=document.getElementById('img-preview'); if(p) p.classList.remove('visible');
   const r=document.getElementById('img-remove-btn'); if(r) r.classList.remove('visible');
 };
 
-// PUBLISH — admin stays logged in, form clears ready for next post
+// PUBLISH — stays on dashboard, form clears, ready for next post
 window.publishArticle = async () => {
   if (!isAdmin) return;
-  const titleEl=document.getElementById('art-title');
-  const bodyEl=document.getElementById('art-body');
-  if (!titleEl||!bodyEl) return;
-  const title=titleEl.value.trim(), body=bodyEl.value.trim();
+  const title = (document.getElementById('art-title')?.value||'').trim();
+  const body  = (document.getElementById('art-body')?.value||'').trim();
   if (!title||!body){ showToast('Title and body are required.'); return; }
   const btn=document.getElementById('publish-btn');
   btn.textContent='Saving…'; btn.disabled=true;
   try {
     let imageUrl=currentImageUrl||null;
-    if (selectedImageFile){ showToast('Processing image…'); imageUrl=await imageToBase64(selectedImageFile); }
+    if(selectedImageFile){ showToast('Processing image…'); imageUrl=await imageToBase64(selectedImageFile); }
     const data={
       title,
-      category:document.getElementById('art-category').value,
-      readTime:parseInt(document.getElementById('art-readtime').value)||5,
-      excerpt:document.getElementById('art-excerpt').value.trim(),
+      category:document.getElementById('art-category')?.value||'Literature',
+      readTime:parseInt(document.getElementById('art-readtime')?.value)||5,
+      excerpt:(document.getElementById('art-excerpt')?.value||'').trim(),
       body,
       ...(imageUrl&&{imageUrl})
     };
-    if (editingArticleId){
+    if(editingArticleId){
       await updateDoc(doc(db,'articles',editingArticleId),{...data,updatedAt:serverTimestamp()});
       editingArticleId=null;
-      showToast('Essay updated!');
-      document.getElementById('form-title').textContent='Publish New Essay';
+      document.getElementById('editing-bar').classList.remove('visible');
       document.getElementById('cancel-edit-btn').style.display='none';
+      showToast('Essay updated! ✓');
     } else {
       await addDoc(collection(db,'articles'),{...data,likes:0,commentCount:0,createdAt:serverTimestamp()});
       showToast('Essay published! 🎉');
     }
     clearForm();
+    // Stay on admin dashboard — scroll to top to see new post in list
+    showPage('admin');
+    renderAdminList();
+    window.scrollTo({top:0,behavior:'smooth'});
   } catch(e){ showToast('Error: '+e.message); }
   btn.textContent='Publish Essay'; btn.disabled=false;
 };
@@ -783,38 +776,36 @@ window.publishArticle = async () => {
 window.editArticle = (id) => {
   const a=allArticles.find(x=>x.id===id); if(!a) return;
   editingArticleId=id;
-  const set=(id,v)=>{const el=document.getElementById(id);if(el)el.value=v||'';};
-  set('art-title',a.title); set('art-excerpt',a.excerpt); set('art-body',a.body);
-  set('art-readtime',a.readTime); set('art-category',a.category||'Literature');
+  const set=(elId,v)=>{const el=document.getElementById(elId);if(el)el.value=v||'';};
+  set('art-title',a.title); set('art-excerpt',a.excerpt);
+  set('art-body',a.body); set('art-readtime',a.readTime);
+  const cat=document.getElementById('art-category'); if(cat) cat.value=a.category||'Literature';
   currentImageUrl=a.imageUrl||null; selectedImageFile=null;
   if(a.imageUrl){
-    const p=document.getElementById('img-preview');
-    if(p){p.src=a.imageUrl;p.classList.add('visible');}
-    const r=document.getElementById('img-remove-btn');
-    if(r) r.classList.add('visible');
+    const p=document.getElementById('img-preview'); if(p){p.src=a.imageUrl;p.classList.add('visible');}
+    const r=document.getElementById('img-remove-btn'); if(r) r.classList.add('visible');
   }
-  document.getElementById('form-title').textContent='Edit Essay';
+  document.getElementById('editing-bar').classList.add('visible');
   document.getElementById('publish-btn').textContent='Update Essay';
   document.getElementById('cancel-edit-btn').style.display='block';
-  showPage('admin'); window.scrollTo({top:0,behavior:'smooth'});
+  showPage('admin');
+  window.scrollTo({top:0,behavior:'smooth'});
 };
 
 window.cancelEdit = () => {
   editingArticleId=null;
-  document.getElementById('form-title').textContent='Publish New Essay';
+  document.getElementById('editing-bar').classList.remove('visible');
   document.getElementById('publish-btn').textContent='Publish Essay';
   document.getElementById('cancel-edit-btn').style.display='none';
   clearForm();
 };
 
-function clearForm() {
-  ['art-title','art-readtime','art-excerpt','art-body'].forEach(id=>{
-    const el=document.getElementById(id); if(el) el.value='';
-  });
-  const cat=document.getElementById('art-category'); if(cat) cat.value='Literature';
-  const fi=document.getElementById('art-image'); if(fi) fi.value='';
-  const p=document.getElementById('img-preview'); if(p) p.classList.remove('visible');
-  const r=document.getElementById('img-remove-btn'); if(r) r.classList.remove('visible');
+function clearForm(){
+  ['art-title','art-readtime','art-excerpt','art-body'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  const cat=document.getElementById('art-category');if(cat)cat.value='Literature';
+  const fi=document.getElementById('art-image');if(fi)fi.value='';
+  const p=document.getElementById('img-preview');if(p)p.classList.remove('visible');
+  const r=document.getElementById('img-remove-btn');if(r)r.classList.remove('visible');
   selectedImageFile=null; currentImageUrl=null;
 }
 
@@ -824,19 +815,17 @@ window.deleteArticle = async (id) => {
   showToast('Essay deleted.');
 };
 
-function renderAdminList() {
+function renderAdminList(){
   const list=document.getElementById('admin-articles-list'); if(!list) return;
-  if(!allArticles.length){ list.innerHTML='<p style="color:var(--text-muted);font-size:.88rem;padding:.5rem 0;">No essays yet. Write your first one above.</p>'; return; }
+  if(!allArticles.length){ list.innerHTML='<p style="color:var(--text-muted);font-size:.88rem;padding:.5rem 0;">No essays yet — write your first one above!</p>'; return; }
   list.innerHTML=allArticles.map(a=>`
-    <div class="admin-row">
-      ${a.imageUrl
-        ?`<img src="${a.imageUrl}" class="admin-thumb" alt=""/>`
-        :`<div class="admin-thumb-ph">✦</div>`}
-      <div class="admin-info">
+    <div class="admin-post-card">
+      ${a.imageUrl?`<img src="${a.imageUrl}" class="admin-thumb" alt=""/>`:`<div class="admin-thumb-ph">✦</div>`}
+      <div class="admin-post-info">
         <h3>${esc(a.title)}</h3>
-        <p>${a.category||''} · ${fmtDate(a.createdAt)} · ♥ ${a.likes||0} · 💬 ${a.commentCount||0}</p>
+        <p>${a.category||''} &nbsp;·&nbsp; ${fmtDate(a.createdAt)} &nbsp;·&nbsp; ♥ ${a.likes||0} &nbsp;·&nbsp; 💬 ${a.commentCount||0}</p>
       </div>
-      <div class="admin-btns">
+      <div class="admin-post-btns">
         <button class="btn-edit" onclick="editArticle('${a.id}')">Edit</button>
         <button class="btn-delete" onclick="deleteArticle('${a.id}')">Delete</button>
       </div>
@@ -848,18 +837,18 @@ window.showPage = (name) => {
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   const pg=document.getElementById('page-'+name); if(pg) pg.classList.add('active');
   document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
-  const nav=document.getElementById('nav-'+name); if(nav) nav.classList.add('active');
+  const nv=document.getElementById('nav-'+name); if(nv) nv.classList.add('active');
   window.scrollTo(0,0);
   if(name==='admin'&&isAdmin) renderAdminList();
 };
-window.goBack = () => showPage(prevPage);
-window.openLoginModal = () => { const m=document.getElementById('login-modal'); if(m) m.classList.add('open'); };
-window.closeLoginModal = () => { const m=document.getElementById('login-modal'); if(m) m.classList.remove('open'); };
-document.getElementById('login-modal').addEventListener('click', e => { if(e.target===document.getElementById('login-modal')) closeLoginModal(); });
-window.toggleMobileNav = () => document.getElementById('mobile-nav').classList.toggle('open');
-window.closeMobileNav  = () => document.getElementById('mobile-nav').classList.remove('open');
+window.goBack=()=>showPage(prevPage);
+window.openLoginModal=()=>document.getElementById('login-modal').classList.add('open');
+window.closeLoginModal=()=>document.getElementById('login-modal').classList.remove('open');
+document.getElementById('login-modal').addEventListener('click',e=>{if(e.target===document.getElementById('login-modal'))closeLoginModal();});
+window.toggleMobileNav=()=>document.getElementById('mobile-nav').classList.toggle('open');
+window.closeMobileNav=()=>document.getElementById('mobile-nav').classList.remove('open');
 
-window.showToast = (msg) => {
+window.showToast=(msg)=>{
   const t=document.getElementById('toast');
   t.textContent=msg; t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),3000);
